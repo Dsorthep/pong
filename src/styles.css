@@ -1,8 +1,9 @@
 .container {
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
   background-color: #9ad7fa;
   border: 2px solid hsl(83, 97%, 63%);
   border-radius: 4px;
   margin: 20px auto;
+  position: relative;
 }

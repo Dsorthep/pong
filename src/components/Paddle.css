@@ -3,8 +3,16 @@
   width: 25px;
   background-color: rgb(250, 51, 134);
   border-radius: 4px;
+  /*Positioning*/
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .paddle.player2 {
   background-color: rgb(182, 56, 255);
+
+  left: auto;
+  right: 20px;
 }
