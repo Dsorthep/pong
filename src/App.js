@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 import Paddle from "./components/Paddle";
 
 export default function App() {
+  const [p1PaddleY, setP1PaddleY] = useState(0);
+  const [p2PaddleY, setP2PaddleY] = useState(0);
+
+  function handleKey(e) {
+    const char = e.key.toLowerCase();
+    if (char === "w" || char === "s") {
+      setP1PaddleY(p1PaddleY + (char === "w" ? -10 : 10));
+    }
+    if (char === "o" || char === "l") {
+      setP2PaddleY(p2PaddleY + (char === "o" ? -10 : 10));
+    }
+    console.log(e);
+  }
+  useEffect(() => {
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [p1PaddleY, p2PaddleY]);
   return (
     <div className="container">
-      <Paddle />
+      <Paddle paddleY={p1PaddleY} />
       <br />
       <br />
       <br />
@@ -13,7 +30,7 @@ export default function App() {
       <br />
       <br />
       <br />
-      <Paddle isPlayerTwo />
+      <Paddle isPlayerTwo paddleY={p2PaddleY} />
     </div>
   );
 }
